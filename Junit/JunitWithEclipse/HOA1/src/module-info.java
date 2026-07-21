@@ -1,0 +1,3 @@
+module JunitLearning {
+    requires junit;
+}
