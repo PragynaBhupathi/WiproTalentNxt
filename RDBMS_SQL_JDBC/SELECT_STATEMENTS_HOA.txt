@@ -1,0 +1,361 @@
+
+SQL> DESC DEPARTMENTS;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPARTMENT_ID                             NOT NULL NUMBER(4)
+ DEPARTMENT_NAME                           NOT NULL VARCHAR2(30)
+ MANAGER_ID                                         NUMBER(6)
+ LOCATION_ID                                        NUMBER(4)
+
+SQL> select * from DEPARTMENTS;
+
+DEPARTMENT_ID DEPARTMENT_NAME                MANAGER_ID LOCATION_ID
+------------- ------------------------------ ---------- -----------
+           10 Administration                        200        1700
+           20 Marketing                             201        1800
+           30 Purchasing                            114        1700
+           40 Human Resources                       203        2400
+           50 Shipping                              121        1500
+           60 IT                                    103        1400
+           70 Public Relations                      204        2700
+           80 Sales                                 145        2500
+           90 Executive                             100        1700
+          100 Finance                               108        1700
+          110 Accounting                            205        1700
+
+DEPARTMENT_ID DEPARTMENT_NAME                MANAGER_ID LOCATION_ID
+------------- ------------------------------ ---------- -----------
+          120 Treasury                                         1700
+          130 Corporate Tax                                    1700
+          140 Control And Credit                               1700
+          150 Shareholder Services                             1700
+          160 Benefits                                         1700
+          170 Manufacturing                                    1700
+          180 Construction                                     1700
+          190 Contracting                                      1700
+          200 Operations                                       1700
+          210 IT Support                                       1700
+          220 NOC                                              1700
+
+DEPARTMENT_ID DEPARTMENT_NAME                MANAGER_ID LOCATION_ID
+------------- ------------------------------ ---------- -----------
+          230 IT Helpdesk                                      1700
+          240 Government Sales                                 1700
+          250 Retail Sales                                     1700
+          260 Recruiting                                       1700
+          270 Payroll                                          1700
+
+27 rows selected.
+
+SQL> SELECT EMPLOYEE_ID,LAST_NAME,JOB_ID,HIRE_DATE AS STARTDATE FROM EMPLOYEES;
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        199 Grant                     SH_CLERK   13-JAN-18
+        200 Whalen                    AD_ASST    17-SEP-13
+        201 Martinez                  MK_MAN     17-FEB-14
+        202 Davis                     MK_REP     17-AUG-15
+        203 Jacobs                    HR_REP     07-JUN-12
+        204 Brown                     PR_REP     07-JUN-12
+        205 Higgins                   AC_MGR     07-JUN-12
+        206 Gietz                     AC_ACCOUNT 07-JUN-12
+        100 King                      AD_PRES    17-JUN-13
+        101 Yang                      AD_VP      21-SEP-15
+        102 Garcia                    AD_VP      13-JAN-11
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        103 James                     IT_PROG    03-JAN-16
+        104 Miller                    IT_PROG    21-MAY-17
+        105 Williams                  IT_PROG    25-JUN-15
+        106 Jackson                   IT_PROG    05-FEB-16
+        107 Nguyen                    IT_PROG    07-FEB-17
+        108 Gruenberg                 FI_MGR     17-AUG-12
+        109 Faviet                    FI_ACCOUNT 16-AUG-12
+        110 Chen                      FI_ACCOUNT 28-SEP-15
+        111 Sciarra                   FI_ACCOUNT 30-SEP-15
+        112 Urman                     FI_ACCOUNT 07-MAR-16
+        113 Popp                      FI_ACCOUNT 07-DEC-17
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        114 Li                        PU_MAN     07-DEC-12
+        115 Khoo                      PU_CLERK   18-MAY-13
+        116 Baida                     PU_CLERK   24-DEC-15
+        117 Tobias                    PU_CLERK   24-JUL-15
+        118 Himuro                    PU_CLERK   15-NOV-16
+        119 Colmenares                PU_CLERK   10-AUG-17
+        120 Weiss                     ST_MAN     18-JUL-14
+        121 Fripp                     ST_MAN     10-APR-15
+        122 Kaufling                  ST_MAN     01-MAY-13
+        123 Vollman                   ST_MAN     10-OCT-15
+        124 Mourgos                   ST_MAN     16-NOV-17
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        125 Nayer                     ST_CLERK   16-JUL-15
+        126 Mikkilineni               ST_CLERK   28-SEP-16
+        127 Landry                    ST_CLERK   14-JAN-17
+        128 Markle                    ST_CLERK   08-MAR-18
+        129 Bissot                    ST_CLERK   20-AUG-15
+        130 Atkinson                  ST_CLERK   30-OCT-15
+        131 Marlow                    ST_CLERK   16-FEB-15
+        132 Olson                     ST_CLERK   10-APR-17
+        133 Mallin                    ST_CLERK   14-JUN-14
+        134 Rogers                    ST_CLERK   26-AUG-16
+        135 Gee                       ST_CLERK   12-DEC-17
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        136 Philtanker                ST_CLERK   06-FEB-18
+        137 Ladwig                    ST_CLERK   14-JUL-13
+        138 Stiles                    ST_CLERK   26-OCT-15
+        139 Seo                       ST_CLERK   12-FEB-16
+        140 Patel                     ST_CLERK   06-APR-16
+        141 Rajs                      ST_CLERK   17-OCT-13
+        142 Davies                    ST_CLERK   29-JAN-15
+        143 Matos                     ST_CLERK   15-MAR-16
+        144 Vargas                    ST_CLERK   09-JUL-16
+        145 Singh                     SA_MAN     01-OCT-14
+        146 Partners                  SA_MAN     05-JAN-15
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        147 Errazuriz                 SA_MAN     10-MAR-15
+        148 Cambrault                 SA_MAN     15-OCT-17
+        149 Zlotkey                   SA_MAN     29-JAN-18
+        150 Tucker                    SA_REP     30-JAN-15
+        151 Bernstein                 SA_REP     24-MAR-15
+        152 Hall                      SA_REP     20-AUG-15
+        153 Olsen                     SA_REP     30-MAR-16
+        154 Cambrault                 SA_REP     09-DEC-16
+        155 Tuvault                   SA_REP     23-NOV-17
+        156 King                      SA_REP     30-JAN-14
+        157 Sully                     SA_REP     04-MAR-14
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        158 McEwen                    SA_REP     01-AUG-14
+        159 Smith                     SA_REP     10-MAR-15
+        160 Doran                     SA_REP     15-DEC-15
+        161 Sewall                    SA_REP     03-NOV-16
+        162 Vishney                   SA_REP     11-NOV-15
+        163 Greene                    SA_REP     19-MAR-17
+        164 Marvins                   SA_REP     24-JAN-18
+        165 Lee                       SA_REP     23-FEB-18
+        166 Ande                      SA_REP     24-MAR-18
+        167 Banda                     SA_REP     21-APR-18
+        168 Ozer                      SA_REP     11-MAR-15
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        169 Bloom                     SA_REP     23-MAR-16
+        170 Fox                       SA_REP     24-JAN-16
+        171 Smith                     SA_REP     23-FEB-17
+        172 Bates                     SA_REP     24-MAR-17
+        173 Kumar                     SA_REP     21-APR-18
+        174 Abel                      SA_REP     11-MAY-14
+        175 Hutton                    SA_REP     19-MAR-15
+        176 Taylor                    SA_REP     24-MAR-16
+        177 Livingston                SA_REP     23-APR-16
+        178 Grant                     SA_REP     24-MAY-17
+        179 Johnson                   SA_REP     04-JAN-18
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        180 Taylor                    SH_CLERK   24-JAN-16
+        181 Fleaur                    SH_CLERK   23-FEB-16
+        182 Sullivan                  SH_CLERK   21-JUN-17
+        183 Geoni                     SH_CLERK   03-FEB-18
+        184 Sarchand                  SH_CLERK   27-JAN-14
+        185 Bull                      SH_CLERK   20-FEB-15
+        186 Dellinger                 SH_CLERK   24-JUN-16
+        187 Cabrio                    SH_CLERK   07-FEB-17
+        188 Chung                     SH_CLERK   14-JUN-15
+        189 Dilly                     SH_CLERK   13-AUG-15
+        190 Venzl                     SH_CLERK   11-JUL-16
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID     STARTDATE
+----------- ------------------------- ---------- ---------
+        191 Perkins                   SH_CLERK   19-DEC-17
+        192 Bell                      SH_CLERK   04-FEB-14
+        193 Everett                   SH_CLERK   03-MAR-15
+        194 McLeod                    SH_CLERK   01-JUL-16
+        195 Jones                     SH_CLERK   17-MAR-17
+        196 Walsh                     SH_CLERK   24-APR-16
+        197 Feeney                    SH_CLERK   23-MAY-16
+        198 OConnell                  SH_CLERK   21-JUN-17
+
+107 rows selected.
+
+SQL> SELECT DISTINCT JOB_ID FROM EMPLOYEES;
+
+JOB_ID
+----------
+AC_ACCOUNT
+AC_MGR
+AD_ASST
+AD_PRES
+AD_VP
+FI_ACCOUNT
+FI_MGR
+HR_REP
+IT_PROG
+MK_MAN
+MK_REP
+
+JOB_ID
+----------
+PR_REP
+PU_CLERK
+PU_MAN
+SA_MAN
+SA_REP
+SH_CLERK
+ST_CLERK
+ST_MAN
+
+19 rows selected.
+
+SQL> SELECT EMPLOYEE_ID AS "EMP #" , LAST_NAME AS "EMPLOYEE",JOB_ID AS "JOB",HIRE_DATE AS "HIRE DATE" FROM EMPLOYEES;
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       199 Grant                     SH_CLERK   13-JAN-18
+       200 Whalen                    AD_ASST    17-SEP-13
+       201 Martinez                  MK_MAN     17-FEB-14
+       202 Davis                     MK_REP     17-AUG-15
+       203 Jacobs                    HR_REP     07-JUN-12
+       204 Brown                     PR_REP     07-JUN-12
+       205 Higgins                   AC_MGR     07-JUN-12
+       206 Gietz                     AC_ACCOUNT 07-JUN-12
+       100 King                      AD_PRES    17-JUN-13
+       101 Yang                      AD_VP      21-SEP-15
+       102 Garcia                    AD_VP      13-JAN-11
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       103 James                     IT_PROG    03-JAN-16
+       104 Miller                    IT_PROG    21-MAY-17
+       105 Williams                  IT_PROG    25-JUN-15
+       106 Jackson                   IT_PROG    05-FEB-16
+       107 Nguyen                    IT_PROG    07-FEB-17
+       108 Gruenberg                 FI_MGR     17-AUG-12
+       109 Faviet                    FI_ACCOUNT 16-AUG-12
+       110 Chen                      FI_ACCOUNT 28-SEP-15
+       111 Sciarra                   FI_ACCOUNT 30-SEP-15
+       112 Urman                     FI_ACCOUNT 07-MAR-16
+       113 Popp                      FI_ACCOUNT 07-DEC-17
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       114 Li                        PU_MAN     07-DEC-12
+       115 Khoo                      PU_CLERK   18-MAY-13
+       116 Baida                     PU_CLERK   24-DEC-15
+       117 Tobias                    PU_CLERK   24-JUL-15
+       118 Himuro                    PU_CLERK   15-NOV-16
+       119 Colmenares                PU_CLERK   10-AUG-17
+       120 Weiss                     ST_MAN     18-JUL-14
+       121 Fripp                     ST_MAN     10-APR-15
+       122 Kaufling                  ST_MAN     01-MAY-13
+       123 Vollman                   ST_MAN     10-OCT-15
+       124 Mourgos                   ST_MAN     16-NOV-17
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       125 Nayer                     ST_CLERK   16-JUL-15
+       126 Mikkilineni               ST_CLERK   28-SEP-16
+       127 Landry                    ST_CLERK   14-JAN-17
+       128 Markle                    ST_CLERK   08-MAR-18
+       129 Bissot                    ST_CLERK   20-AUG-15
+       130 Atkinson                  ST_CLERK   30-OCT-15
+       131 Marlow                    ST_CLERK   16-FEB-15
+       132 Olson                     ST_CLERK   10-APR-17
+       133 Mallin                    ST_CLERK   14-JUN-14
+       134 Rogers                    ST_CLERK   26-AUG-16
+       135 Gee                       ST_CLERK   12-DEC-17
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       136 Philtanker                ST_CLERK   06-FEB-18
+       137 Ladwig                    ST_CLERK   14-JUL-13
+       138 Stiles                    ST_CLERK   26-OCT-15
+       139 Seo                       ST_CLERK   12-FEB-16
+       140 Patel                     ST_CLERK   06-APR-16
+       141 Rajs                      ST_CLERK   17-OCT-13
+       142 Davies                    ST_CLERK   29-JAN-15
+       143 Matos                     ST_CLERK   15-MAR-16
+       144 Vargas                    ST_CLERK   09-JUL-16
+       145 Singh                     SA_MAN     01-OCT-14
+       146 Partners                  SA_MAN     05-JAN-15
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       147 Errazuriz                 SA_MAN     10-MAR-15
+       148 Cambrault                 SA_MAN     15-OCT-17
+       149 Zlotkey                   SA_MAN     29-JAN-18
+       150 Tucker                    SA_REP     30-JAN-15
+       151 Bernstein                 SA_REP     24-MAR-15
+       152 Hall                      SA_REP     20-AUG-15
+       153 Olsen                     SA_REP     30-MAR-16
+       154 Cambrault                 SA_REP     09-DEC-16
+       155 Tuvault                   SA_REP     23-NOV-17
+       156 King                      SA_REP     30-JAN-14
+       157 Sully                     SA_REP     04-MAR-14
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       158 McEwen                    SA_REP     01-AUG-14
+       159 Smith                     SA_REP     10-MAR-15
+       160 Doran                     SA_REP     15-DEC-15
+       161 Sewall                    SA_REP     03-NOV-16
+       162 Vishney                   SA_REP     11-NOV-15
+       163 Greene                    SA_REP     19-MAR-17
+       164 Marvins                   SA_REP     24-JAN-18
+       165 Lee                       SA_REP     23-FEB-18
+       166 Ande                      SA_REP     24-MAR-18
+       167 Banda                     SA_REP     21-APR-18
+       168 Ozer                      SA_REP     11-MAR-15
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       169 Bloom                     SA_REP     23-MAR-16
+       170 Fox                       SA_REP     24-JAN-16
+       171 Smith                     SA_REP     23-FEB-17
+       172 Bates                     SA_REP     24-MAR-17
+       173 Kumar                     SA_REP     21-APR-18
+       174 Abel                      SA_REP     11-MAY-14
+       175 Hutton                    SA_REP     19-MAR-15
+       176 Taylor                    SA_REP     24-MAR-16
+       177 Livingston                SA_REP     23-APR-16
+       178 Grant                     SA_REP     24-MAY-17
+       179 Johnson                   SA_REP     04-JAN-18
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       180 Taylor                    SH_CLERK   24-JAN-16
+       181 Fleaur                    SH_CLERK   23-FEB-16
+       182 Sullivan                  SH_CLERK   21-JUN-17
+       183 Geoni                     SH_CLERK   03-FEB-18
+       184 Sarchand                  SH_CLERK   27-JAN-14
+       185 Bull                      SH_CLERK   20-FEB-15
+       186 Dellinger                 SH_CLERK   24-JUN-16
+       187 Cabrio                    SH_CLERK   07-FEB-17
+       188 Chung                     SH_CLERK   14-JUN-15
+       189 Dilly                     SH_CLERK   13-AUG-15
+       190 Venzl                     SH_CLERK   11-JUL-16
+
+     EMP # EMPLOYEE                  JOB        HIRE DATE
+---------- ------------------------- ---------- ---------
+       191 Perkins                   SH_CLERK   19-DEC-17
+       192 Bell                      SH_CLERK   04-FEB-14
+       193 Everett                   SH_CLERK   03-MAR-15
+       194 McLeod                    SH_CLERK   01-JUL-16
+       195 Jones                     SH_CLERK   17-MAR-17
+       196 Walsh                     SH_CLERK   24-APR-16
+       197 Feeney                    SH_CLERK   23-MAY-16
+       198 OConnell                  SH_CLERK   21-JUN-17
+
+107 rows selected.
+
+SQL>

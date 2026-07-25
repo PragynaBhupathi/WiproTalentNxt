@@ -1,0 +1,146 @@
+1.
+SQL> CREATE TABLE MY_EMPLOYEE AS SELECT EMPLOYEE_ID,FIRST_NAME,LAST_NAME,DEPARTMENT_ID,SALARY FROM EMPLOYEES WHERE 1=2;
+
+Table created.
+
+2.
+SQL> DESC MY_EMPLOYEE;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                                        NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ DEPARTMENT_ID                                      NUMBER(4)
+ SALARY                                             NUMBER(8,2)
+
+3.
+
+SQL> INSERT INTO MY_EMPLOYEE(EMPLOYEE_ID,FIRST_NAME,LAST_NAME,DEPARTMENT_ID,SALARY) VALUES(201,'Michael','Hartstein',20,13000);
+
+1 row created
+
+4.
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(202,'Pat','Fay',20,NULL);
+
+1 row created.
+
+
+SQL> SELECT * FROM MY_EMPLOYEE;
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+----------- -------------------- ------------------------- -------------
+    SALARY
+----------
+        201 Michael              Hartstein                            20
+     13000
+
+        202 Pat                  Fay                                  20
+
+5.
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(203,'Susan','Mavris',40,NULL);
+
+1 row created.
+
+SQL> SELECT * FROM MY_EMPLOYEE;
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+----------- -------------------- ------------------------- -------------
+    SALARY
+----------
+        201 Michael              Hartstein                            20
+     13000
+
+        202 Pat                  Fay                                  20
+
+
+        203 Susan                Mavris                               40
+
+6.
+
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(204,'Shelley','Miggins',110,12000);
+
+1 row created.
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(100,'Steven','King',90,24000);
+
+1 row created.
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(101,'Neena','Kochhar',90,17000);
+
+1 row created.
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(102,'Lex De','Haan',90,17000);
+
+1 row created.
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(111,'Ismael','Sciarra',100,7700);
+
+1 row created.
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(112,'Jose Manuel','Urman',100,7800);
+
+1 row created.
+
+SQL> INSERT INTO MY_EMPLOYEE VALUES(205,'Hermann','Baer',70,10000);
+
+1 row created.
+
+SQL> SELECT * FROM MY_EMPLOYEE;
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+----------- -------------------- ------------------------- -------------
+    SALARY
+----------
+        201 Michael              Hartstein                            20
+     13000
+
+        202 Pat                  Fay                                  20
+
+
+        203 Susan                Mavris                               40
+
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+----------- -------------------- ------------------------- -------------
+    SALARY
+----------
+        204 Shelley              Miggins                             110
+     12000
+
+        100 Steven               King                                 90
+     24000
+
+        101 Neena                Kochhar                              90
+     17000
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+----------- -------------------- ------------------------- -------------
+    SALARY
+----------
+        102 Lex De               Haan                                 90
+     17000
+
+        111 Ismael               Sciarra                             100
+      7700
+
+        112 Jose Manuel          Urman                               100
+      7800
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                 DEPARTMENT_ID
+----------- -------------------- ------------------------- -------------
+    SALARY
+----------
+        205 Hermann              Baer                                 70
+     10000
+
+
+10 rows selected.
+
+7.
+
