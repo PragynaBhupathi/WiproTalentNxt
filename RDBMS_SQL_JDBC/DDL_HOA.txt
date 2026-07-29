@@ -1,0 +1,157 @@
+1.
+
+SQL> CREATE TABLE DEPT
+  2  (
+  3      DEPT_ID NUMBER(7) PRIMARY KEY,
+  4      DEPT_NAME VARCHAR2(20)
+  5  );
+
+Table created.
+
+SQL> DESC DEPT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPT_ID                                   NOT NULL NUMBER(7)
+ DEPT_NAME                                          VARCHAR2(20)
+
+2.
+
+SQL> INSERT INTO DEPT(DEPT_ID,DEPT_NAME) SELECT DEPARTMENT_ID,DEPARTMENT_NAME FROM DEPARTMENTS;
+
+27 rows created.
+
+SQL> INSERT INTO DEPT VALUES(10,'Accounts');
+INSERT INTO DEPT VALUES(10,'Accounts')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (HR.SYS_C008624) violated on table HR.DEPT columns
+(DEPT_ID)
+ORA-03301: (ORA-00001 details) row with column values (DEPT_ID:10) already
+exists
+Help: https://docs.oracle.com/error-help/db/ora-00001/
+
+
+SQL> INSERT INTO DEPT VALUES(NULL,'IT');
+INSERT INTO DEPT VALUES(NULL,'IT')
+                        *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("HR"."DEPT"."DEPT_ID")
+Help: https://docs.oracle.com/error-help/db/ora-01400/
+
+
+SQL> INSERT INTO DEPT VALUES(20,'IT');
+INSERT INTO DEPT VALUES(20,'IT')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (HR.SYS_C008624) violated on table HR.DEPT columns
+(DEPT_ID)
+ORA-03301: (ORA-00001 details) row with column values (DEPT_ID:20) already
+exists
+Help: https://docs.oracle.com/error-help/db/ora-00001/
+
+
+SQL> INSERT INTO DEPT VALUES(A1,'Accounts');
+INSERT INTO DEPT VALUES(A1,'Accounts')
+                        *
+ERROR at line 1:
+ORA-00984: column not allowed here
+Help: https://docs.oracle.com/error-help/db/ora-00984/
+
+
+SQL> INSERT INTO DEPT VALUES(30,'Accounts');
+INSERT INTO DEPT VALUES(30,'Accounts')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (HR.SYS_C008624) violated on table HR.DEPT columns
+(DEPT_ID)
+ORA-03301: (ORA-00001 details) row with column values (DEPT_ID:30) already
+exists
+Help: https://docs.oracle.com/error-help/db/ora-00001/
+
+
+SQL> SELECT * FROM DEPT;
+
+   DEPT_ID DEPT_NAME
+---------- --------------------
+        10 Administration
+        20 Marketing
+        30 Purchasing
+        40 Human Resources
+        50 Shipping
+        60 IT
+        70 Public Relations
+        80 Sales
+        90 Executive
+       100 Finance
+       110 Accounting
+
+   DEPT_ID DEPT_NAME
+---------- --------------------
+       120 Treasury
+       130 Corporate Tax
+       140 Control And Credit
+       150 Shareholder Services
+       160 Benefits
+       170 Manufacturing
+       180 Construction
+       190 Contracting
+       200 Operations
+       210 IT Support
+       220 NOC
+
+   DEPT_ID DEPT_NAME
+---------- --------------------
+       230 IT Helpdesk
+       240 Government Sales
+       250 Retail Sales
+       260 Recruiting
+       270 Payroll
+
+27 rows selected.
+
+3.
+SQL> CREATE TABLE EMP
+  2  (
+  3      ID NUMBER(7) PRIMARY KEY,
+  4      LAST_NAME VARCHAR2(25) NOT NULL,
+  5      FIRST_NAME VARCHAR2(25),
+  6      DEPT_ID NUMBER(7),
+  7      CONSTRAINT EMP_DEPT_FK1
+  8      FOREIGN KEY (DEPT_ID)
+  9      REFERENCES DEPT(DEPT_ID)
+ 10  );
+
+Table created.
+
+SQL> DESC EMP
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(7)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ FIRST_NAME                                         VARCHAR2(25)
+ DEPT_ID                                            NUMBER(7)
+SQL> INSERT INTO EMP VALUES(101,'Sam','Sundar',10);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(101,'Ram','Krishna',20);
+INSERT INTO EMP VALUES(101,'Ram','Krishna',20)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (HR.SYS_C008628) violated on table HR.EMP columns
+(ID)
+ORA-03301: (ORA-00001 details) row with column values (ID:101) already exists
+Help: https://docs.oracle.com/error-help/db/ora-00001/
+
+
+SQL> INSERT INTO EMP VALUES(102,'Gopi',NULL,40);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(103,NULL,'ram',20);
+INSERT INTO EMP VALUES(103,NULL,'ram',20)
+                           *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("HR"."EMP"."LAST_NAME")
+Help: https://docs.oracle.com/error-help/db/ora-01400/
+
